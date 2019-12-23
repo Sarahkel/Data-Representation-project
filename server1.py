@@ -33,19 +33,16 @@ def findById(id):
 
 @app.route('/products', methods=['POST'])
 def create():
-    #global nextId
+
     if not request.json:
         abort(400)
-    #check that request is properly formatted
     product = {
-        #"id": nextId,
         "Name": request.json['Name'],
         "Type": request.json['Type'],
         "Size": request.json['Size'],
         "Price": request.json['Price']
     }
-    # nextId += 1 #ensure counter stays correct
-    # products.append(product)
+
     values =(product['Name'],product['Type'],product['Size'], product['Price'])
     newId = productDAO.create(values)
     product['id'] = newId
@@ -56,11 +53,6 @@ def update(id):
     foundProduct = productDAO.findByID(id)
     if not foundProduct:
         abort(400)
-    # if len(foundProducts) == 0:
-    #     return jsonify({}), 204
-    # foundProduct = foundProducts[0]
-    # if not request.json:
-    #     abort(400)
 
     reqJson = request.json
 
@@ -86,10 +78,6 @@ def update(id):
 
 @app.route('/products/<int:id>', methods=['DELETE'])
 def delete(id):
-    # foundProducts = list(filter(lambda b: b['id'] == id, products))
-    # if len(foundProducts) == 0:
-    #     return jsonify({}), 204
-    # products.remove(foundProducts[0])
     productDAO.delete(id)
     return jsonify({"done":True})
 
