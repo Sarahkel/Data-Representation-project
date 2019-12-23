@@ -6,11 +6,11 @@ from zproductsDAO import productDAO
 app = Flask(__name__, static_url_path='', static_folder='.')
 
 
-products = [
-    { "id":1, "Name": "Yog Nog", "Type": "Shower Gel", "Size": 250, "Price": 2000},
-    { "id":2, "Name": "Snow Fairy", "Type": "Shower Gel", "Size": 250, "Price": 2000},
-    { "id":3, "Name": "Yog Nog", "Type": "Body Conditioner", "Size": 125, "Price": 1500}
-]
+# products = [
+#     { "id":1, "Name": "Yog Nog", "Type": "Shower Gel", "Size": 250, "Price": 2000},
+#     { "id":2, "Name": "Snow Fairy", "Type": "Shower Gel", "Size": 250, "Price": 2000},
+#     { "id":3, "Name": "Yog Nog", "Type": "Body Conditioner", "Size": 125, "Price": 1500}
+# ]
 
 nextId = 4
 
